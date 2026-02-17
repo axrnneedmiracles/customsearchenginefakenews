@@ -9,7 +9,7 @@
 - **AI Image Detector:** A dual-method forensic tool that analyzes image metadata and visual artifacts to identify AI-generated content (DALL-E, Midjourney, etc.).
 - **Community Threat Hub:** A moderated platform where users can report and view trending scams to keep others safe.
 - **Interactive 3D UI:** A sleek, dark-themed interface featuring interactive Spline 3D models and high-performance animations.
-- **Admin Moderation:** A secure panel for administrators to review and approve community-submitted reports.
+- **Advanced Security Hub:** Access to a Web Extension, On-Call Detection, and Leaked DB Scanning.
 
 ## 🛠️ Tech Stack
 
@@ -27,8 +27,15 @@
 1. `git init`
 2. `git add .`
 3. `git commit -m "feat: initial commit"`
-4. `git remote add origin https://github.com/USERNAME/REPO.git`
-5. `git push -u origin main`
+4. `git branch -M main`
+5. `git remote add origin https://github.com/USERNAME/REPO.git`
+6. `git push -u origin main`
+
+### Changing Git Remote
+If your project is already linked to another repository and you want to switch it:
+1. **Check current remote:** `git remote -v`
+2. **Set new URL:** `git remote set-url origin https://github.com/YOUR_USERNAME/NEW_REPO.git`
+3. **Verify:** `git remote -v`
 
 ### Vercel Hosting
 1. Connect your GitHub repository to [Vercel](https://vercel.com).
