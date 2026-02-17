@@ -28,9 +28,17 @@ export function ExtensionPage() {
   const { toast } = useToast();
 
   const handleDownload = () => {
+    // Trigger the actual file download from the public directory
+    const link = document.createElement('a');
+    link.href = '/webextension/sentinelguard.zip';
+    link.setAttribute('download', 'sentinelguard.zip');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     toast({
       title: "Download Started",
-      description: "The Sentinel Scan extension package is being prepared for your browser.",
+      description: "The Sentinel Scan extension package (sentinelguard.zip) is downloading.",
     });
   };
 
