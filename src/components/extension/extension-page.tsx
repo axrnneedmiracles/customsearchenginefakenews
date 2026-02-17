@@ -64,19 +64,6 @@ export function ExtensionPage() {
               {/* Outer Pulse */}
               <div className="absolute -inset-1 bg-primary/30 rounded-xl blur opacity-0 group-hover:opacity-100 animate-pulse transition-opacity" />
             </Button>
-            
-            <div className="flex items-center gap-3 px-4 py-2 bg-card/30 backdrop-blur-sm rounded-xl border border-border/50">
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-muted flex items-center justify-center text-[10px] font-bold">
-                    ID
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground font-medium">
-                Joined by <span className="text-primary-foreground font-bold">2,400+</span> users this week
-              </p>
-            </div>
           </div>
         </div>
 
