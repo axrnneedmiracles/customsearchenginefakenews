@@ -25,9 +25,10 @@ import { incrementScanCount, incrementVisitorCount } from '@/lib/firebase-action
 import { ScreenshotScannerPage } from '@/components/detector/screenshot-scanner-page';
 import { MoreOptionsPage } from '@/components/options/more-options-page';
 import { CallScannerPage } from '@/components/detector/call-scanner-page';
+import { ExtensionPage } from '@/components/extension/extension-page';
 
 type ScanStatus = 'idle' | 'scanning' | 'success' | 'error';
-type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot' | 'call-scanner';
+type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot' | 'call-scanner' | 'extension';
 
 export default function Home() {
   const [status, setStatus] = useState<ScanStatus>('idle');
@@ -109,6 +110,8 @@ export default function Home() {
         return <ScreenshotScannerPage />;
       case 'call-scanner':
         return <CallScannerPage />;
+      case 'extension':
+        return <ExtensionPage />;
       case 'community':
         return <CommunityPage prefilledReport={prefilledReport} onFormSubmit={() => setPrefilledReport(null)} />;
       case 'about':

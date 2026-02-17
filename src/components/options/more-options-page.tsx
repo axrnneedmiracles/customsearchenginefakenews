@@ -15,8 +15,8 @@ const options = [
     icon: <Chrome className="text-primary w-6 h-6" />,
     title: 'Web Extension',
     description: 'Real-time phishing protection directly in your browser. Blocks malicious domains as you browse.',
-    status: 'Coming Soon',
-    action: 'Learn More'
+    status: 'Live',
+    action: 'Get Extension'
   },
   {
     id: 'call-scanner',
