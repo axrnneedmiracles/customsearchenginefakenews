@@ -22,13 +22,13 @@ export function ScamBot() {
           </div>
           
           {/* ASK NAYRA Button - Positioned to cover Spline Logo */}
-          <div className="absolute bottom-0 right-0 p-4 w-full flex justify-end">
+          <div className="absolute bottom-0 right-0 p-4 w-full flex justify-end z-[100]">
             <Button 
               onClick={() => setChatOpen(true)}
-              className="group relative h-16 w-full max-w-[280px] bg-primary hover:bg-primary/90 text-primary-foreground font-black uppercase tracking-widest rounded-2xl shadow-[0_10px_30px_rgba(103,58,183,0.5)] border-2 border-white/20 transition-all hover:scale-105 active:scale-95 cursor-target flex items-center justify-center gap-3 overflow-hidden"
+              className="group relative h-16 w-full max-w-[280px] bg-primary hover:bg-primary text-primary-foreground font-black uppercase tracking-widest rounded-2xl shadow-[0_10px_30px_rgba(103,58,183,0.5)] border-2 border-white/20 transition-all hover:scale-105 active:scale-95 cursor-target flex items-center justify-center gap-3 overflow-hidden opacity-100 hover:opacity-100"
             >
               {/* Animated Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
               
               <span className="text-xl">ASK NAYRA</span>
               <Sparkles className="w-5 h-5 text-accent animate-pulse" />
