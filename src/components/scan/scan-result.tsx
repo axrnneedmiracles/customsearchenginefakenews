@@ -13,6 +13,7 @@ interface ScanResultProps {
   result: ScanResult | null;
   status: 'idle' | 'scanning' | 'success' | 'error';
   onWarnCommunity: () => void;
+  onOpenChat: () => void;
 }
 
 const ResultCard: React.FC<{ children: React.ReactNode, className?: string }> = ({ children, className }) => (
@@ -21,7 +22,7 @@ const ResultCard: React.FC<{ children: React.ReactNode, className?: string }> = 
   </Card>
 );
 
-export function ScanResultDisplay({ result, status, onWarnCommunity }: ScanResultProps) {
+export function ScanResultDisplay({ result, status, onWarnCommunity, onOpenChat }: ScanResultProps) {
   if (status === 'scanning') {
     return (
       <ResultCard className="border-primary/50">
@@ -82,7 +83,7 @@ export function ScanResultDisplay({ result, status, onWarnCommunity }: ScanResul
         </ResultCard>
         
         {/* Scam Assistant Bot with Chatbot trigger */}
-        <ScamBot />
+        <ScamBot onOpenChat={onOpenChat} />
       </>
     );
   }

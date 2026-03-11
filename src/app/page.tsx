@@ -27,9 +27,10 @@ import { MoreOptionsPage } from '@/components/options/more-options-page';
 import { CallScannerPage } from '@/components/detector/call-scanner-page';
 import { ExtensionPage } from '@/components/extension/extension-page';
 import { LeakScannerPage } from '@/components/detector/leak-scanner-page';
+import { ChatBotDialog } from '@/components/chat/chatbot-dialog';
 
 type ScanStatus = 'idle' | 'scanning' | 'success' | 'error';
-type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot' | 'call-scanner' | 'extension' | 'leaked-db';
+export type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot' | 'call-scanner' | 'extension' | 'leaked-db';
 
 export default function Home() {
   const [status, setStatus] = useState<ScanStatus>('idle');
@@ -37,6 +38,7 @@ export default function Home() {
   const [detectorOpen, setDetectorOpen] = useState(false);
   const [communityOpen, setCommunityOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
   const { toast } = useToast();
   const [currentView, setCurrentView] = useState<View>('home');
   const [prefilledReport, setPrefilledReport] = useState<Partial<ReportFormData> | null>(null);
@@ -153,7 +155,7 @@ export default function Home() {
                  <ScanForm onScan={handleScan} loading={status === 'scanning'} />
               )}
     
-              <ScanResultDisplay result={result} status={status} onWarnCommunity={handleWarnCommunity} />
+              <ScanResultDisplay result={result} status={status} onWarnCommunity={handleWarnCommunity} onOpenChat={() => setChatOpen(true)} />
 
               {status === 'idle' && <MagicBento onCardClick={(v) => setCurrentView(v as View)} />}
             </>
@@ -172,6 +174,11 @@ export default function Home() {
           onCommunityClick={() => setCommunityOpen(true)} 
           onAboutClick={() => setAboutOpen(true)}
           onAdminClick={handleAdminClick}
+          onNavigate={(view) => {
+            if (view === 'home') handleReset();
+            else setCurrentView(view);
+          }}
+          onContactClick={() => setChatOpen(true)}
         />
         <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-start gap-12">
           {showHomeButton && (
@@ -192,6 +199,7 @@ export default function Home() {
       <ImageDetectorSheet open={detectorOpen} onOpenChange={setDetectorOpen} />
       <CommunitySheet open={communityOpen} onOpenChange={setCommunityOpen} />
       <AboutSheet open={aboutOpen} onOpenChange={setAboutOpen} />
+      <ChatBotDialog open={chatOpen} onClose={() => setChatOpen(false)} />
     </div>
   );
 }
