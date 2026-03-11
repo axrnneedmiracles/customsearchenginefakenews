@@ -19,6 +19,7 @@ export function Header({ onAboutClick, onAdminClick, onNavigate, onContactClick 
     { label: 'Scan Messages', onClick: () => onNavigate('home') },
     { label: 'AI Image Detector', onClick: () => onNavigate('detector') },
     { label: 'On Call Detection', onClick: () => onNavigate('call-scanner') },
+    { label: 'Fake News Detector', onClick: () => onNavigate('fake-news') },
     { label: 'Community Hub', onClick: () => onNavigate('community') },
     { label: 'Web Extension', onClick: () => onNavigate('extension') },
     { label: 'Contact Us', onClick: onContactClick }
