@@ -44,7 +44,7 @@ export function Header({ onAboutClick, onAdminClick, onNavigate, onContactClick 
         colors={['#B19EEF', '#5227FF', '#1a1a1a']}
         logoUrl="/logo.gif"
         accentColor="#d129ff"
-        isFixed={false}
+        isFixed={true}
       />
       
       {/* Absolute overlay for additional buttons that aren't part of the custom menu component */}
