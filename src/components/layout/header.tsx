@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -14,8 +13,8 @@ export function Header() {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/app-debug.apk';
-    link.setAttribute('download', 'app-debug.apk');
+    link.href = '/app-debug.zip';
+    link.setAttribute('download', 'app-debug.zip');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
