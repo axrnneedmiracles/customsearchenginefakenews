@@ -17,11 +17,11 @@ const cardData = [
     label: 'Detector'
   },
   {
-    id: 'community',
+    id: 'fake-news',
     color: '#060010',
-    title: 'Community Reports',
-    description: 'See what other users are reporting.',
-    label: 'Community'
+    title: 'Fake News Detector',
+    description: 'Analyze news articles or claims against verified global fact-check datasets.',
+    label: 'News Scan'
   },
   {
     id: 'screenshot',
@@ -34,7 +34,7 @@ const cardData = [
     id: 'more-options',
     color: '#060010',
     title: 'More Security Tools',
-    description: 'Web extensions, on-call protection, and leaked email scans.',
+    description: 'Web extensions, on-call protection, and advanced forensic tools.',
     label: 'More Options'
   }
 ];
@@ -492,7 +492,7 @@ const useMobileDetection = () => {
   return isMobile;
 };
 
-type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot';
+type View = 'home' | 'detector' | 'community' | 'about' | 'admin' | 'admin-login' | 'more-options' | 'screenshot' | 'fake-news';
 
 interface MagicBentoProps {
     textAutoHide?: boolean;
