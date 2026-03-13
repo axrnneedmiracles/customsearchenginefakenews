@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Info, Shield } from 'lucide-react';
+import { Users, Shield } from 'lucide-react';
 import { type View } from '@/app/page';
 import { SentinelMenu } from './sentinel-menu';
 
@@ -14,7 +14,7 @@ interface HeaderProps {
   onContactClick: () => void;
 }
 
-export function Header({ onAboutClick, onAdminClick, onNavigate, onContactClick }: HeaderProps) {
+export function Header({ onAdminClick, onNavigate, onContactClick }: HeaderProps) {
   const menuItems = [
     { label: 'Scan Messages', onClick: () => onNavigate('home') },
     { label: 'AI Image Detector', onClick: () => onNavigate('detector') },
@@ -35,11 +35,11 @@ export function Header({ onAboutClick, onAdminClick, onNavigate, onContactClick 
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={onAboutClick} 
+          onClick={() => onNavigate('community')} 
           className="hover:bg-primary/20 hover:text-primary-foreground transition-colors cursor-target text-white hidden sm:flex h-10 w-10 rounded-full border border-white/10 bg-black/20 backdrop-blur-md"
         >
-          <Info className="w-5 h-5" />
-          <span className="sr-only">About Us</span>
+          <Users className="w-5 h-5" />
+          <span className="sr-only">Community Hub</span>
         </Button>
         <Button 
           variant="ghost" 
