@@ -1,28 +1,20 @@
 'use client';
 
-import { ShieldCheck, Zap, Download, Puzzle } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { ShieldCheck, Download, Info } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import SplitText from '@/components/ui/split-text';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-const features = [
-  {
-    icon: <ShieldCheck className="text-accent" />,
-    title: 'Instant Block',
-    description: 'Automatically stops you from visiting known malicious or phishing domains.',
-  },
-  {
-    icon: <Zap className="text-primary" />,
-    title: 'Real-time Analysis',
-    description: 'Scans every link you hover over using our lightweight neural engine.',
-  },
-  {
-    icon: <Puzzle className="text-purple-400" />,
-    title: 'One-Click Community',
-    description: 'Easily report scams you find directly to the Sentinel community hub.',
-  },
+const PLATFORMS = [
+  "Instagram", "WhatsApp", "Facebook", "X (Twitter)", "Discord", "Gmail"
 ];
 
 export function ExtensionPage() {
@@ -68,8 +60,19 @@ export function ExtensionPage() {
             Stop checking links manually. Our Chrome extension brings the power of Sentinel Scan directly to your browser, scanning for threats in real-time as you browse.
           </p>
         </div>
+
+        <div className="space-y-4 w-full max-w-xl">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary/60">Supported Ecosystems</p>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                {PLATFORMS.map((p) => (
+                    <span key={p} className="text-xs font-bold text-muted-foreground/80 hover:text-primary transition-colors cursor-default">
+                        {p}
+                    </span>
+                ))}
+            </div>
+        </div>
         
-        <div className="pt-4">
+        <div className="pt-4 flex flex-col items-center gap-6">
           <Button 
             size="lg" 
             onClick={handleDownload}
@@ -82,28 +85,41 @@ export function ExtensionPage() {
             
             <div className="absolute -inset-1 bg-primary/30 rounded-2xl blur opacity-0 group-hover:opacity-100 animate-pulse transition-opacity" />
           </Button>
-          <p className="text-xs text-muted-foreground mt-4 font-mono uppercase tracking-widest opacity-60">
-            Available for Chrome, Brave & Edge
-          </p>
+          
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest opacity-60">
+                Available for Chrome, Brave & Edge
+            </p>
+            
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button variant="link" className="text-accent hover:text-accent/80 text-[10px] uppercase tracking-[0.2em] font-black cursor-target">
+                        <Info className="w-3 h-3 mr-1" />
+                        Privacy & Data Policy
+                    </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-card/95 backdrop-blur-2xl border-primary/20 max-w-md rounded-3xl">
+                    <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2 text-primary uppercase font-black tracking-widest text-sm">
+                            <ShieldCheck className="w-5 h-5" />
+                            Data Storage Policy
+                        </DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4 text-sm text-muted-foreground leading-relaxed pt-4">
+                        <div className="p-4 bg-primary/5 border border-primary/10 rounded-2xl space-y-3">
+                            <p>All processing and storage occur locally on the user’s computer.</p>
+                            <p>No user conversations are uploaded to any server.</p>
+                            <p>No personal messages are stored outside the user's device.</p>
+                            <p>Temporary data used for analysis is cleared automatically when no longer required.</p>
+                        </div>
+                        <p className="text-center font-black text-primary-foreground uppercase tracking-tighter text-base bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+                            This ensures full control of data remains with the user.
+                        </p>
+                    </div>
+                </DialogContent>
+            </Dialog>
+          </div>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-        {features.map((feature, index) => (
-          <Card key={index} className="bg-card/30 backdrop-blur-md border-primary/10 hover:border-primary/30 transition-all">
-            <CardHeader>
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-2">
-                {feature.icon}
-              </div>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
       </div>
 
       <style jsx global>{`
