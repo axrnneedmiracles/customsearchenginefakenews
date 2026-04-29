@@ -54,11 +54,12 @@ export async function detectAiImage(dataUri: string): Promise<ImageAnalysisResul
         apiScore = aiResponse.score;
         aiExplanation = aiResponse.explanation;
     } catch (e) {
+        console.error("AI visual inspection failed:", e);
         aiExplanation = "Error during AI visual inspection.";
     }
 
     // 3. Averaging with weights
-    const finalScore = (metadataScore * 0.4) + (apiScore * 0.6);
+    const finalScore = (metadataScore * 0.3) + (apiScore * 0.7);
     const isAiGenerated = finalScore > 60;
 
     return {

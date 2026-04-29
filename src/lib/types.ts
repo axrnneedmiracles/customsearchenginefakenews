@@ -57,6 +57,44 @@ export type FakeNewsResult = {
     error?: string;
 };
 
+export type ImageScanResult = {
+    // AI Image Detection
+    aiDetection: {
+        metadataScore: number;
+        apiScore: number;
+        finalScore: number;
+        isAiGenerated: boolean;
+        metadataFindings: string[];
+        aiExplanation: string;
+    };
+    // Scam Detection (from extracted text)
+    scamDetection: {
+        isScam: boolean;
+        riskScore: number;
+        explanation: string;
+        extractedText: string;
+        recommendedActions: string;
+    };
+    // Fake News Detection (Gemini + Heuristic)
+    fakeNewsDetection: {
+        isFake: boolean;
+        riskScore: number;
+        geminiVerdict: string;
+        geminiExplanation: string;
+        heuristicVerdict: string;
+        heuristicConfidence: number;
+        heuristicExplanation: string;
+        heuristicFlags: string[];
+        wasClickbait: boolean;
+        confirmedAt: string;
+    };
+    // Overall
+    overallRisk: 'SAFE' | 'SUSPICIOUS' | 'DANGER';
+    overallScore: number;
+    analyzedAt: string;
+    error?: string;
+};
+
 export type LeakedDBResult = {
     email: string;
     isFound: boolean;

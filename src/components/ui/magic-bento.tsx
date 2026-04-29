@@ -17,11 +17,11 @@ const cardData = [
     label: 'Detector'
   },
   {
-    id: 'fake-news',
+    id: 'scan-image',
     color: '#060010',
-    title: 'Fake News Detector',
-    description: 'Analyze news articles or claims against verified global fact-check datasets.',
-    label: 'News Scan'
+    title: 'Image Scanner',
+    description: 'Upload any image — detects AI generation, extracts scam text, and verifies fake news.',
+    label: 'Scan Image'
   },
   {
     id: 'screenshot',
